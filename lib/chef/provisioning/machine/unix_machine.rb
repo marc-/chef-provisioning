@@ -167,6 +167,9 @@ platform_version=`grep DISTRIB_RELEASE /etc/lsb-release | cut -d "=" -f 2`
 elif test -f "/etc/debian_version"; then
 platform="debian"
 platform_version=`cat /etc/debian_version`
+elif test -f "/etc/alpine-release"; then
+platform="alpine"
+platform_version=`cat /etc/alpine-release`
 elif test -f "/etc/redhat-release"; then
 platform=`sed 's/^\\(.\\+\\) release.*/\\1/' /etc/redhat-release | tr '[A-Z]' '[a-z]'`
 platform_version=`sed 's/^.\\+ release \\([.0-9]\\+\\).*/\\1/' /etc/redhat-release`
